@@ -6,35 +6,45 @@ import java.io.Serializable;
 public class PointModel implements Serializable{
     private static final long serialVersionUID = 1;
 
-    private final int x;
-    private final int y;
-    private final int z;
-    private final int r;
+    private final double x;
+    private final double y;
+    private final double r;
 
-    PointModel(int x, int y, int z, int r){
+    public PointModel(double x, double y, double r){
         this.x = x;
         this.y = y;
-        this.z = z;
         this.r = r;
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public int getZ() {
-        return z;
-    }
-    public int getR() {
+    public double getR() {
         return r;
     }
 
     public boolean isInArea(){
-        return true;
+        return isInFirstSector() || isInSecondSector() || isInThirdSector() || isInFourthSector();
+    }
+    private boolean isInFirstSector(){
+        return y <= r && x <= r && x >= 0 && y >= r;
+    }
+    private boolean isInSecondSector(){
+
+        return y <= r && x <= r && x >= 0 && y >= r;
+    }
+    private boolean isInThirdSector(){
+
+        return y <= r && x <= r && x >= 0 && y >= r;
+    }
+    private boolean isInFourthSector(){
+
+        return y <= r && x <= r && x >= 0 && y >= r;
     }
 
     @Override
